@@ -1,8 +1,13 @@
 package com.chatclient;
 
+import com.chatclient.business.SocketServiceThread;
 import com.chatclient.config.Config;
 import com.chatclient.headers.impls.ChatHeaderV1;
 import com.chatclient.packet.Packet;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,9 +18,32 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Main {
+public class Main extends Application {
+
+    @Override
+    public void start(Stage stage) throws Exception {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/views/main-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 600, 800);
+        stage.setScene(scene);
+        stage.setTitle("Chat Client");
+
+        SocketServiceThread thread = new SocketServiceThread();
+        thread.start();
+        stage.setResizable(false);
+        stage.setOnCloseRequest(event -> {
+            thread.close();
+            System.out.println("Client closed");
+        });
+        stage.show();
+
+
+    }
 
     public static void main(String[] args) {
+        launch();
+    }
+
+    private static void doConnect() {
         System.out.println();
 
         while (true) {

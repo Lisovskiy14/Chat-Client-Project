@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chatclient.controllers.MainController">
+    <Label layoutX="241.0" layoutY="21.0" text="Chat history">
+      <font>
+         <Font name="Calibri" size="24.0" />
+      </font></Label>
+   <TextArea fx:id="chatHistoryTA" editable="false" layoutX="25.0" layoutY="60.0" prefHeight="529.0" prefWidth="550.0">
+      <font>
+         <Font name="Calibri" size="18.0" />
+      </font>
+   </TextArea>
+    <Button fx:id="sendButton" layoutX="490.0" layoutY="599.0" onAction="#onSendButtonClick" prefHeight="40.0" prefWidth="85.0" text="Send" AnchorPane.bottomAnchor="161.0" AnchorPane.leftAnchor="490.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="599.0">
+      <font>
+         <Font name="Calibri" size="18.0" />
+      </font></Button>
+   <TextArea fx:id="writeTA" layoutX="28.0" layoutY="611.0" prefHeight="125.0" prefWidth="545.0" promptText="Write a message..." wrapText="true" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="650.0">
+      <font>
+         <Font name="Calibri" size="18.0" />
+      </font>
+   </TextArea>
+</AnchorPane>
